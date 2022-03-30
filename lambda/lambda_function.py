@@ -33,7 +33,7 @@ def lambda_handler(event, context):
             'Value': instanceid
         },
     ],
-    Period=1500,
+    Period=300,
     EvaluationPeriods=5,
     DatapointsToAlarm=3,
     Threshold=90.0,
