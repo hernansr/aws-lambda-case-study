@@ -33,3 +33,22 @@ data "aws_iam_policy_document" "policy_doc" {
     ]
   }
 }
+
+resource "aws_lambda_function" "lambda" {
+  filename      = "${path.module}/lambda/lambda_function.zip"
+  function_name = "lambda"
+  role          = aws_iam_role.role.arn
+  handler       = "lambda_function.lambda_handler"
+  runtime       = "python3.9"
+  # environment {
+  #   variables = {
+  #     DB_NAMES       = join(",", var.db_names)
+  #   }
+  # }
+}
+
+data "archive_file" "zip" {
+  type        = "zip"
+  source_file = "${path.module}/lambda/lambda_function.py"
+  output_path = "${path.module}/lambda/lambda_function.zip"
+}

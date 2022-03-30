@@ -1,2 +1,3 @@
-region = "us-east-1"
-email  = "hrenteriav@gmail.com"
+region  = "us-east-1"
+email   = "@gmail.com"
+account = "account"

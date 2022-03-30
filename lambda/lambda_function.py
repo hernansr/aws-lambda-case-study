@@ -22,6 +22,8 @@ def lambda_handler(event, context):
     AlarmName="%s High CPU Utilization Warning" % (instanceid),
     AlarmDescription='CPU Utilization Greater than 90% for 15+ Minutes',
     ActionsEnabled=True,
+    AlarmActions=['arn:aws:sns:us-east-1:(account):topic'],
+    OKActions=['arn:aws:sns:us-east-1:(account):topic'],
     MetricName='CPUUtilization',
     Namespace='AWS/EC2',
     Statistic='Average',
