@@ -26,8 +26,7 @@ data "aws_iam_policy_document" "policy_doc" {
        "cloudwatch:PutMetricAlarm",
        "logs:CreateLogGroup",
        "logs:CreateLogStream",
-       "logs:PutLogEvents",
-       "sns:Publish"
+       "logs:PutLogEvents"
     ]
     resources = [
       "*",
