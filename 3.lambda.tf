@@ -40,11 +40,12 @@ resource "aws_lambda_function" "lambda" {
   role          = aws_iam_role.role.arn
   handler       = "lambda_function.lambda_handler"
   runtime       = "python3.9"
-  # environment {
-  #   variables = {
-  #     DB_NAMES       = join(",", var.db_names)
-  #   }
-  # }
+  environment {
+    variables = {
+      ACCOUNT = var.account
+      REGION  = var.region
+    }
+  }
 }
 
 data "archive_file" "zip" {
